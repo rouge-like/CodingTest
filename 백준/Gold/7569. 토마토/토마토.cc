@@ -27,13 +27,18 @@ int main() {
     grid.resize(h, vector<vector<int>>(n, vector<int>(m)));
     
     int unripe_tomatoes = 0;
-    for (int i = 0; i < h; ++i) {
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < m; ++k) {
+    for (int i = 0; i < h; ++i) 
+    {
+        for (int j = 0; j < n; ++j) 
+        {
+            for (int k = 0; k < m; ++k) 
+            {
                 cin >> grid[i][j][k];
-                if (grid[i][j][k] == 1) {
+                if (grid[i][j][k] == 1) 
+                {
                     q.push({i, j, k});
-                } else if (grid[i][j][k] == 0) {
+                } else if (grid[i][j][k] == 0) 
+                {
                     unripe_tomatoes++;
                 }
             }
