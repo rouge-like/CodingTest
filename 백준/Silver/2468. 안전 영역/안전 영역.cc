@@ -11,7 +11,7 @@ vector<vector<int>> grid(101, vector<int>(101, 0));
 vector<vector<bool>> visited(101, vector<bool>(101, false));
 int dx[4] = { 1,0,-1,0 };
 int dy[4] = { 0,1,0,-1 };
-int mxDepth = 0;
+int mxDepth = 100;
 void dfs(int y, int x, int depth)
 {
 	visited[y][x] = true;
@@ -40,7 +40,7 @@ int main()
 		for (int j = 0; j < N; j++)
 		{
 			cin >> grid[i][j];
-			mxDepth = max(mxDepth, grid[i][j]);
+			//mxDepth = max(mxDepth, grid[i][j]);
 		}
 	}
  
