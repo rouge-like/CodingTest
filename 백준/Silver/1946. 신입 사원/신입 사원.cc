@@ -21,7 +21,6 @@ int main() {
         cin >> N;
         vector<pair<int, int>> score;
         score.resize(N);
-        map<pair<int, int>, int> cnt;
 
         for (int i = 0; i < N; i++)
         {
@@ -32,33 +31,15 @@ int main() {
 
         sort(score.begin(), score.end(), [](pair<int, int> a, pair<int, int> b) {return a.first < b.first; });
         int sec = score[0].second;
-        cnt[score[0]] += 1;
+        int result = 1;
         for (int i = 1; i < N; i++)
         {
             if (score[i].second < sec)
             {
                 sec = score[i].second;
-                cnt[score[i]] += 1;
+                result++;
             }
         }
-
-        sort(score.begin(), score.end(), [](pair<int, int> a, pair<int, int> b) {return a.second < b.second; });
-        int first = score[0].first;
-        cnt[score[0]] += 1;
-        for (int i = 1; i < N; i++)
-        {
-            if (score[i].first < first)
-            {
-                first = score[i].first;
-                cnt[score[i]] += 1;
-            }
-        }
-        int result = 0;
-        for (auto m : cnt)
-        {
-            if (m.second == 2) result++;
-        }
-
         cout << result << "\n";
     }
 
