@@ -32,6 +32,12 @@ void bfs(int start)
 			if (!v[c][i]) continue;
 			if (visited[i]) continue;
 
+			for (int j = 0; j < n; j++)
+			{
+				if (!dp[i][j]) continue;
+				dp[start][j] = dp[i][j];
+				visited[j] = true;
+			}
 			visited[i] = 1;
 			dp[start][i] = 1;
 			q.push(i);
