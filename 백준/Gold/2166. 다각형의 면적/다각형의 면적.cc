@@ -1,31 +1,44 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <map>
+#include <algorithm>
+#include <climits>
+#include <queue>
 #include <cmath>
+
+
 using namespace std;
 
+int n;
+vector<pair<long double, long double>> pos;
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-    int n;
-    cin >> n;
+	cin >> n;
 
-    vector<pair<long double, long double>> pos(n);
-    for (int i = 0; i < n; i++)
-        cin >> pos[i].first >> pos[i].second;
+	for (int i = 0; i < n; i++)
+	{
+		int x, y;
+		cin >> x >> y;
+		pos.push_back({ x,y });
+	}
 
-    long double sum1 = 0, sum2 = 0;
-    for (int i = 0; i < n; i++)
-    {
-        int j = (i + 1) % n;
-        sum1 += pos[i].first * pos[j].second;
-        sum2 += pos[i].second * pos[j].first;
-    }
+	pos.push_back(pos.front());
+	long double x = 0;
+	long double y = 0;
 
-    cout << fixed;
-    cout.precision(1);
-    cout << fabsl(sum1 - sum2) / 2.0;
+	for (int i = 1; i <= n; i++)
+	{
+		x += pos[i - 1].first * pos[i].second;
+		y += pos[i - 1].second * pos[i].first;
+	}    
+	cout << fixed;
+	cout.precision(1);
+	cout << fabsl(x - y) / 2.0;
 
-    return 0;
+	return 0;
 }
