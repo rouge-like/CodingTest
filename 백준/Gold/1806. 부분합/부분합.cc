@@ -30,7 +30,7 @@ int main()
     int l = 0;
     int r = 1;
     int ans = INT_MAX;
-    while (l <= r && r <= N)
+    while (l < r && r <= N)
     {
         int sum = v[r] - v[l];
 
